@@ -1,6 +1,7 @@
 :root {
     --primary-color: #D9AE77;
     --secondary-color: #99642D;
+    --active-color: #FF5733;
     --background-color: #070707;
     --text-color: #ffffff;
     --highlight-color: #ffcc00;
@@ -38,7 +39,6 @@ body {
 }
 
 /* Logo */
-
 .logo-a {
     font-weight: bold;
     color: var(--primary-color);
@@ -49,14 +49,14 @@ body {
     color: var(--secondary-color);
 }
 
-/* Nav content */
+/* Nav conteúdo */
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 20px 0px 20px 0px;
     background-color: rgba(255, 255, 255, 0.1);
-    position: fixed;
+    position: absolute;
     width: 100%;
     top: 0;
     left: 0;
@@ -86,6 +86,46 @@ nav .nav-links a {
 nav .nav-links a:hover {
     color: var(--highlight-color);
     text-decoration: underline;
+}
+
+nav .nav-links a:active {
+    color: var(--active-color);
+}
+
+/* Barra de navegação responsiva */
+nav .menu-icon {
+    display: none;
+    font-size: 1.8rem;
+    color: var(--text-color);
+    cursor: pointer;
+    margin-right: 20px;
+}
+
+@media (max-width: 768px) {
+    nav .menu-icon {
+        display: block;
+    }
+}
+
+@media (max-width: 768px) {
+    nav .nav-links {
+        flex-direction: column;
+        background-color: rgba(0, 0, 0, 0.8);
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        padding: 10px;
+        border-radius: 5px;
+        display: none;
+    }
+
+    nav .nav-links.active {
+        display: flex;
+    }
+
+    nav .nav-links a {
+        margin: 10px 0;
+    }
 }
 
 /* Header content */
