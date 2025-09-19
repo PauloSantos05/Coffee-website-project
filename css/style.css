@@ -3,10 +3,12 @@
     --primary-color: #D9AE77;
     --secondary-color: #99642D;
     --active-color: #FF5733;
-    --background-color: #070707;
+    --background-color: linear-gradient(180deg, #141414, #070707) repeat-y fixed;
     --text-color: #ffffff;
     --highlight-color: #ffcc00;
     --lowlight-color: #333333;
+    --container-bg-color: #1a1a1a54;
+    --image-border-color: #fffd88;
 }
 
 * {
@@ -34,9 +36,29 @@ html{
 
 body {
     font-family: 'Poppins', sans-serif;
-    background-color: var(--background-color);
+    background: var(--background-color);
     color: var(--text-color);
     line-height: 1.6;
+}
+
+body .container
+{
+    width: 90%;
+    margin: 0 auto;
+}
+/* Scrollbar */
+
+body::-webkit-scrollbar {
+    width: 12px;
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: var(--primary-color);
+    border-radius: 4px;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+    background-color: var(--active-color);
 }
 
 /* Logo */
@@ -102,37 +124,13 @@ nav .menu-icon {
     margin-right: 20px;
 }
 
-@media (max-width: 768px) {
-    nav .menu-icon {
-        display: block;
-    }
-}
 
-@media (max-width: 768px) {
-    nav .nav-links {
-        flex-direction: column;
-        background-color: rgba(0, 0, 0, 0.8);
-        position: absolute;
-        top: 60px;
-        right: 20px;
-        padding: 10px;
-        border-radius: 5px;
-        display: none;
-    }
-
-    nav .nav-links.active {
-        display: flex;
-    }
-
-    nav .nav-links a {
-        margin: 10px 0;
-    }
-}
 
 /* Header content */
 header {
     background: url('../images/Background.jpg') no-repeat center center/cover;
     height: 100vh;
+    /* border-bottom: 2px solid var(--primary-color); */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -159,4 +157,117 @@ header .btn {
     border-radius: 5px;
     text-decoration: none;
     font-size: 1.2rem;
+    transition: background 0.3s ease, color 0.3s ease;
+    cursor: pointer;
+}
+
+header .btn:hover {
+    background: var(--active-color);
+    color: var(--text-color);
+}
+
+/* Seções */
+section {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: var(--primary-color);
+}
+
+section p {
+    font-size: 1.1rem;
+    max-width: 800px;
+    margin: 0 auto 40px auto;
+    color: var(--text-color);
+}
+
+section .btn {
+    background: var(--highlight-color);
+    color: var(--lowlight-color);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: background 0.3s ease, color 0.3s ease;
+    cursor: pointer;
+}
+
+section .btn:hover {
+    background: var(--active-color);
+    color: var(--text-color);
+}
+
+/* Containers */
+
+.container {
+    background-color: var(--container-bg-color);
+    /* border-top: 1px solid var(--highlight-color); */
+    border-left: 1px solid var(--highlight-color);
+    border-right: 1px solid var(--highlight-color);
+    justify-content: center;
+}
+
+.about {
+    /* width: 0%; */
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+}
+
+.about img {
+    width: 470px;
+    border: 1px solid var(--image-border-color);
+    border-radius: 10px;
+}
+
+/* Bordas */
+.border-top {
+    border-top: 1px solid var(--primary-color);
+}
+
+.border-bottom {
+    border-bottom: 1px solid var(--primary-color);
+}
+
+
+/* Responsive Design  */
+@media (max-width: 768px) {
+    
+    .about {
+        flex-direction: column;
+    }
+
+    .about img {
+        width: 100%;
+        max-width: 300px;
+    }
+    
+    nav .menu-icon {
+        display: block;
+    }
+
+    nav .nav-links {
+        flex-direction: column;
+        background-color: rgba(0, 0, 0, 0.8);
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        padding: 10px;
+        border-radius: 5px;
+        display: none;
+    }
+
+    nav .nav-links.active {
+        display: flex;
+    }
+
+    nav .nav-links a {
+        margin: 10px 0;
+    }
 }
