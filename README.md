@@ -37,10 +37,14 @@ O site será desenvolvido em etapas, evoluindo de páginas estáticas para funci
 ## 📂 Estrutura Atual
 ```bash
 📦 cafe-gourmet-website
- ┣ 📂 assets          # Imagens e ícones
+ ┣ 📂 images          # Imagens e ícones
  ┣ 📂 css             # Arquivos de estilo
  ┃ ┗ style.css
  ┣ 📜 index.html      # Página inicial (produtos em cards)
  ┣ 📜 carrinho.html   # Página do carrinho
+ ┣ 📜 cadastro.html   # Página de cadastro
+ ┣ 📜 login.html      # Página de login
+ ┣ 📜 pagamento.html  # Página de pagamento
+ ┣ 📜 cardapio.html   # Página do cardápio
  ┣ 📜 admin.html      # Página administrativa
  ┗ 📜 README.md       # Documentação do projeto
